@@ -37,7 +37,7 @@ function M.kitty(state, disable, opts)
   if not vim.fn.executable("kitten") then
     return
   end
-  local cmd = "kitty @ set-font-size %s"
+  local cmd = "kitten @ set-font-size %s"
   if disable then
     vim.fn.system(cmd:format(opts.font))
   else

@@ -34,15 +34,14 @@ end
 -- changes the kitty font size
 -- it's a bit glitchy, but it works
 function M.kitty(state, disable, opts)
-  if not vim.fn.executable("kitty") then
+  if not vim.fn.executable("kitten") then
     return
   end
-  local cmd = "kitty @ --to %s set-font-size %s"
-  local socket = vim.fn.expand("$KITTY_LISTEN_ON")
+  local cmd = "kitty @ set-font-size %s"
   if disable then
-    vim.fn.system(cmd:format(socket, opts.font))
+    vim.fn.system(cmd:format(opts.font))
   else
-    vim.fn.system(cmd:format(socket, "0"))
+    vim.fn.system(cmd:format("0"))
   end
   vim.cmd([[redraw]])
 end
